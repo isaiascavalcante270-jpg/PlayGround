@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101524">
+  <title>Dragon Ball: Universal Showdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="arena" aria-label="3D anime battle arena"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Universal Showdown home"><span class="brand-mark">超</span><span class="brand-text">UNIVERSAL <b>SHOWDOWN</b><small>DRAGON BALL · ARENA SERIES</small></span></a>
+      <div class="match-info"><span class="live-dot"></span> RANKED BATTLE <i></i> EARTH · 07</div>
+      <button class="icon-btn pause-btn" id="pauseBtn" aria-label="Pause game"><span>Ⅱ</span></button>
+    </header>
+    <section class="hud" aria-label="Battle status">
+      <div class="fighter-panel player-panel">
+        <div class="portrait portrait-goku"><span>悟</span></div>
+        <div class="fighter-data"><div class="name-line"><b>SON GOKU</b><span>LV. 99</span></div>
+          <div class="bar-label"><span>HP</span><span id="playerHpText">100%</span></div><div class="bar hp-bar"><i id="playerHp"></i></div>
+          <div class="bar-label ki-label"><span>KI</span><span id="playerKiText">72%</span></div><div class="bar ki-bar"><i id="playerKi"></i></div>
+        </div>
+      </div>
+      <div class="center-status"><div class="round-label">WORLD TOURNAMENT</div><div class="timer" id="timer">99<span>:</span>00</div><div class="round-count">ROUND <b>01</b><span> / </span>03</div></div>
+      <div class="fighter-panel enemy-panel"><div class="fighter-data"><div class="name-line"><b>VEGETA</b><span>LV. 98</span></div>
+          <div class="bar-label"><span>HP</span><span id="enemyHpText">100%</span></div><div class="bar hp-bar"><i id="enemyHp"></i></div>
+          <div class="bar-label ki-label"><span>KI</span><span id="enemyKiText">56%</span></div><div class="bar ki-bar"><i id="enemyKi"></i></div>
+        </div><div class="portrait portrait-vegeta"><span>王</span></div>
+      </div>
+    </section>
+    <div class="arena-label"><span class="label-line"></span><span>PLANET EARTH</span><span class="label-line"></span></div>
+    <div class="combo" id="combo"><strong id="comboNum">0</strong><span>HIT<br>COMBO</span><em id="comboGrade">NICE!</em></div>
+    <div class="fight-callout" id="fightCallout">FIGHT!</div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <section class="bottom-ui">
+      <div class="control-hint"><span class="hint-key">W A S D</span><span>MOVE</span><span class="hint-sep">·</span><span class="hint-key">J</span><span>ATTACK</span><span class="hint-sep">·</span><span class="hint-key">K</span><span>HEAVY</span></div>
+      <div class="ultimate-meter"><div class="ultimate-label"><span>◇</span> LIMIT BREAK <b id="limitText">36%</b></div><div class="ultimate-track"><i id="limitBar"></i></div></div>
+      <div class="control-hint right-hint"><span class="hint-key">L</span><span>GUARD</span><span class="hint-sep">·</span><span class="hint-key">I</span><span>CHARGE</span><span class="hint-sep">·</span><span class="hint-key">O</span><span>KI BLAST</span></div>
+    </section>
+    <div class="touch-controls" aria-label="Touch controls">
+      <div class="dpad"><button data-hold="up" aria-label="Move up">▲</button><div><button data-hold="left" aria-label="Move left">◀</button><button data-hold="down" aria-label="Move down">▼</button><button data-hold="right" aria-label="Move right">▶</button></div></div>
+      <div class="action-pad"><button class="action guard" data-hold="guard"><span>◈</span><small>GUARD</small></button><button class="action charge" data-hold="charge"><span>ϟ</span><small>CHARGE</small></button><button class="action blast" data-action="blast"><span>●</span><small>KI BLAST</small></button><button class="action light" data-action="light"><span>✦</span><small>LIGHT</small></button><button class="action heavy" data-action="heavy"><span>拳</span><small>HEAVY</small></button></div>
+    </div>
+    <div class="pause-overlay" id="pauseOverlay"><div class="pause-card"><div class="eyebrow">BATTLE PAUSED</div><h1>TAKE A BREATH.</h1><p>Your next chapter is one fight away.</p><button id="resumeBtn" class="primary-btn">RESUME BATTLE <span>→</span></button><button id="restartBtn" class="text-btn">RESTART MATCH</button></div></div>
+    <div class="result-overlay" id="resultOverlay"><div class="result-card"><div class="eyebrow" id="resultEyebrow">MATCH COMPLETE</div><h1 id="resultTitle">VICTORY</h1><p id="resultCopy">The universe is a little safer.</p><button id="playAgainBtn" class="primary-btn">FIGHT AGAIN <span>→</span></button></div></div>
+    <footer class="footer"><span>© CAPSULE CORP. BATTLE DIVISION</span><span>POWER LEVEL: <b id="powerLevel">9,000</b> <i>▲</i></span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
